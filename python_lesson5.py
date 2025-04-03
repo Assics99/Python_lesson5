@@ -3,14 +3,14 @@ from faker import Faker
 import file_operations
 
 skills = [
-"Стремительный прыжок",
-"Электрический выстрел",
-"Ледяной удар",
-"Стремительный удар",
-"Кислотный взгляд",
-"Тайный побег",
-"Ледяной выстрел",
-"Огненный заряд"
+    "Стремительный прыжок",
+    "Электрический выстрел",
+    "Ледяной удар",
+    "Стремительный удар",
+    "Кислотный взгляд",
+    "Тайный побег",
+    "Ледяной выстрел",
+    "Огненный заряд"
 ]
 
 runic_dictionary = {
@@ -83,10 +83,10 @@ runic_dictionary = {
     ' ': ' '
 }
 
-runic_skills = []
 fake = Faker("ru_RU")
 
 def do_things():
+    runic_skills = []
     for skill in skills:
         text = ''
         for letter in skill:
@@ -95,18 +95,18 @@ def do_things():
     for number in range(1,11):      
         skills_random = random.sample(runic_skills,3)
         context = {
-        'first_name': fake.first_name(),
-        'last_name': fake.last_name(),
-        'job': fake.job(),
-        'town': fake.city(),
-        'strength': random.randint(3, 18),
-        'agility': random.randint(3, 18),
-        'endurance': random.randint(3, 18),
-        'intelligence': random.randint(3, 18),
-        'luck': random.randint(3, 18),
-        'skill_1': skills_random[0],
-        'skill_2': skills_random[1],
-        'skill_3': skills_random[2],
+            'first_name': fake.first_name(),
+            'last_name': fake.last_name(),
+            'job': fake.job(),
+            'town': fake.city(),
+            'strength': random.randint(3, 18),
+            'agility': random.randint(3, 18),
+            'endurance': random.randint(3, 18),
+            'intelligence': random.randint(3, 18),
+            'luck': random.randint(3, 18),
+            'skill_1': skills_random[0],
+            'skill_2': skills_random[1],
+            'skill_3': skills_random[2],
         }
         file_operations.render_template("charsheet.svg", "results/result-{}.svg".format(number), context)
 
