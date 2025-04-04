@@ -2,7 +2,7 @@ import random
 from faker import Faker
 import file_operations
 
-skills = [
+SKILLS = [
     "Стремительный прыжок",
     "Электрический выстрел",
     "Ледяной удар",
@@ -13,7 +13,7 @@ skills = [
     "Огненный заряд"
 ]
 
-runic_dictionary = {
+RUNIC_DICTIONARY = {
     'а': 'а͠',
     'б': 'б̋',
     'в': 'в͒͠',
@@ -83,14 +83,14 @@ runic_dictionary = {
     ' ': ' '
 }
 
-fake = Faker("ru_RU")
+FAKE = Faker("ru_RU")
 
 def do_things():
     runic_skills = []
-    for skill in skills:
+    for skill in SKILLS:
         text = ''
         for letter in skill:
-            text += runic_dictionary.get(letter)
+            text += RUNIC_DICTIONARY.get(letter)
         runic_skills.append(text)    
     for number in range(1,11):      
         skills_random = random.sample(runic_skills,3)
